@@ -1,0 +1,8 @@
+kind: Namespaces
+apiVersion: v1 
+metadata:
+  name: expence
+  lables: 
+    name: expence
+    environment: dev
+    
