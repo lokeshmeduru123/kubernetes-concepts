@@ -1,0 +1,15 @@
+kind: service
+apiVersion: v1 
+metadata:
+  name: nginx
+spec:
+  type: NodePort
+  selector:
+    name: frontend
+    project: expence
+    component: frontend
+    environemt: dev
+  ports:
+  - protocol: TCP
+    port: 80 # service port (load-balancer)
+    targetport: 80  #target port  
