@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: joindevops
+data:
+  course: "k8"
+  trainer: "shiva"
+  github: "https://github.com"
+
