@@ -1,0 +1,15 @@
+kind: pod
+apiVersion: v1 
+metadata:
+  name: lables
+  lables:
+    course: k8
+    trainer: shiva
+  annotations:
+    kunernetes.io/created-by: 'shiva concepts'
+    jenins-URl: 'https://jenkins.com'
+
+spec:
+  containers:
+  - name: nginx
+    image: nginx
