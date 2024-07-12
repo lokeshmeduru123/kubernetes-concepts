@@ -1,9 +1,9 @@
 kind: service
 apiVersion: v1 
 metadata:
-  name: nginx
+  name: nginx-lb
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     name: frontend
     project: expence
@@ -13,4 +13,4 @@ spec:
   - protocol: TCP
     port: 80 # service port (load-balancer)
     targetport: 80  #target port  
-    NodePort: 32760
+    NodePort: 32761
