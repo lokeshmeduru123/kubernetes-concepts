@@ -1,7 +1,46 @@
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
+apiVersion: v1 
+kind: PersistentVolumClaim
 metadata:
-  name: expence-ebs 
-reclaimPolicy: Retain 
-provisioner: ebs.csi.aws.com
-volumeBindingMode: WaitForFirstConsumer
+  name: ebs-dynamic
+  spec:
+    storageClassName: "ecpence-dynamic" #empty string must be explicitly set otherwise default storageclass
+    volumeName: ebs-dynamic
+    accessModes:
+    - ReadWriteOnce
+    resources:  
+      requests:
+        storage: 4Gi
+---
+apiVersion: v1 
+kind: pod 
+metadata:
+  name: nginx-dynamic
+  labels:
+    purpose: ebs-dynamic
+    project: expence
+spec: 
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: persistant-storage
+      mountPath: /usr/share/nginx/html
+  volume:
+  - name: persistant-storage
+    persistantVolumeClaim: 
+      claimName: ebs-dynamic
+---
+kind: service
+apiVersion: v1 
+metadata:
+  name: nginx-dynamic
+spec:
+  type: LoadBalancer
+  selector:
+    purpose: ebs-dynamic
+    project: expence
+  ports:
+  - protocol: TCP
+    port: 80 # service port (load-balancer)
+    targetport: 80  #target port  
+    NodePort: 32761
