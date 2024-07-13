@@ -1,0 +1,45 @@
+kind: Deployment 
+apiVersion: apps/v1
+metadata:
+  Namespaces: expence
+  name: mysql
+  #these lables are deployment related lables
+  lables:
+    component: mysql
+    project: expence
+    tier: database
+spec:
+    replicas: 2
+    selector:
+      matchlables:
+        component: mysql
+        project: expence
+        tier: database
+    # pod
+    template:
+      metadata:
+        lables:
+          component: mysql
+          project: expence
+          tier: database
+        spec:
+          containers:
+          - name: mysql
+            image: joindevops/mysql:v1
+
+---
+apiVersion: v1 
+kind: service 
+metadata:
+  Namespaces: expence
+  name: mysql
+spec:
+  selector:
+      component: mysql
+      project: expence
+      tier: database
+
+  ports:
+  - protocol: TCP
+    port: 3306 # service port (load-balancer)
+    targetport: 3306  #target port 
