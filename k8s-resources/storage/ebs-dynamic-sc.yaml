@@ -5,3 +5,4 @@ metadata:
 reclaimPolicy: Retain 
 provisioner: ebs.csi.aws.com
 volumeBindingMode: WaitForFirstConsumer
+#sc-->storage class
