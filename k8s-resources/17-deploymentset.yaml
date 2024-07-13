@@ -1,0 +1,28 @@
+kind: Deployment 
+apiVersion: apps/v1
+metadata:
+  name: nginx
+  #these lables are deployment related lables
+  lables:
+    app: nginx
+    purpose: deployment
+    tier: web
+spec:
+    replicas: 3
+    selector:
+      matchlables:
+        app: nginx
+        tier: web
+        project: test-project
+    # pod
+    template:
+      metadata:
+        lables:
+          app: nginx
+          tier: web
+          project: test-project
+          extra-key: extra-value
+        spec:
+          containers:
+          - name: nginx
+            image: nginx
