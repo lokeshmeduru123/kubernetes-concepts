@@ -120,7 +120,7 @@ spec:
       containers:
       - name: frontend
         image: joindevops/frontend:v1.0
-        resources:
+        resources: #here we need to specify the HPA 
           requests:
             cpu: "100m"
             memory: "128Mi"
