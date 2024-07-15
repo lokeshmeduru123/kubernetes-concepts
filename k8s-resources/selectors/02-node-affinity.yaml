@@ -12,14 +12,6 @@ spec:
             operator: In
             values:
             - expense
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        preference:
-          matchExpressions:
-          - key: another-node-label-key
-            operator: In
-            values:
-            - another-node-label-value
   containers:
   - name: with-node-affinity
     image: nginx
