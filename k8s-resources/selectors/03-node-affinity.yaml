@@ -5,13 +5,14 @@ metadata:
 spec:
   affinity:
     nodeAffinity:
-      preferredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-        - matchExpressions:
-          - key: project
-            operator: In
-            values:
-            - expense
+       preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+            - key: project
+              operator: In
+              values:
+              - expence
   containers:
   - name: with-node-affinity
     image: nginx
