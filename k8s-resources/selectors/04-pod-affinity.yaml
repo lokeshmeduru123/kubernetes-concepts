@@ -51,7 +51,7 @@ spec:
             operator: In
             values:
             - pod-1
-        topologyKey: "kubernetes.io/hostname"
+        topologyKey: "kubernetes.io/hostname" # this is the difference in anti affinity 
   containers:
   - name: nginx
     image: nginx
