@@ -10,3 +10,7 @@ managedNodeGroups:
     instanceType: m5.large
     desiredCapacity: 3
     spot : true
+
+
+# to delete cluster --> eksctl delete cluster --config-file=eks.yaml
+# to create cluster --> eksctl create cluster --config-file=eks.yaml
