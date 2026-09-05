@@ -72,3 +72,7 @@ https://localhost:8080
 kubectl delete -n argocd -f argocd-install.yaml
 ```
 
+**To expose the argocd using nodeport in minikube**
+
+```
+```
