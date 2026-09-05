@@ -76,6 +76,21 @@ kubectl delete -n argocd -f argocd-install.yaml
 ```
 kubectl apply -f argocd-install-nodeport.yaml -n argocd
 ```
+Real changes are 
+
+```
+spec:
+  type: NodePort
+```
+and under the ports:
+```
+nodePort: 30080
+```
+and:
+```
+nodePort: 30443
+```
+Your exact existing argocd-server service currently points both HTTP 80 and HTTPS 443 to the Argo CD server container on targetPort: 8080
 
 **Verify the service**
 ```
