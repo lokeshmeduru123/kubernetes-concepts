@@ -66,3 +66,9 @@ Then Vist
 ```
 https://localhost:8080
 ```
+
+**To delete the resources**
+```
+kubectl delete -n argocd -f argocd-install.yaml
+```
+
