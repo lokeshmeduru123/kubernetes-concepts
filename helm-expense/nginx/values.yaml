@@ -4,4 +4,5 @@ deployment:
   replicas: 1
   imageVersion: mainline-bookworm-perl
 service:
-  nodePort: 32134
+  type: ClusterIP
+  port: 80
