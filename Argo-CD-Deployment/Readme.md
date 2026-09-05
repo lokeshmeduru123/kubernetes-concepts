@@ -77,7 +77,7 @@ kubectl delete -n argocd -f argocd-install.yaml
 kubectl apply -f argocd-install-nodeport.yaml -n argocd
 ```
 
-** verify the service**
+**Verify the service**
 ```
 kubectl get svc -n argocd
 ```
