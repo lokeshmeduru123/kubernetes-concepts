@@ -73,6 +73,6 @@ kubectl delete -n argocd -f argocd-install.yaml
 ```
 
 **To expose the argocd using nodeport in minikube**
-
 ```
+kubectl apply -f argocd-install-nodeport.yaml -n argocd
 ```
