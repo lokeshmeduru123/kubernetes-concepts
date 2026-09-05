@@ -1,6 +1,6 @@
 Argo-CD installation in minikube
 
-To download the Argocd code 
+**To download the Argocd code**
 
 ```
 curl -L \
